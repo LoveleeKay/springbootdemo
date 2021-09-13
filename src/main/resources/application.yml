@@ -1,0 +1,13 @@
+#spring:
+#   datasource:
+#　    driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://127.0.0.1:3306/school?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+# username: root
+# password: root
+# type: com.alibaba.druid.pool.DruidDataSource
+
+#mybatis:
+#  #  mapper文件
+#  mapper-locations: mapper/*/*Mapper.xml
+#  #  实体类
+#  type-aliases-package: com.fallenfairy.*.pojo
