@@ -10,10 +10,10 @@
 <!--        <property name="queueCapacity" value="1500" />-->
 <!--    </bean>-->
 
-    <bean class="com.example.springbootdemo.beanlife.BeanFactoryPostProcessorTest" />
-    <bean class="com.example.springbootdemo.beanlife.InitBeanPostProcessor" />
-    <bean class="com.example.springbootdemo.beanlife.InstanceBeanPostProcessor" />
-    <bean class="com.example.springbootdemo.component.SpringContextUtil" />
+<!--    <bean class="com.example.springbootdemo.beanlife.BeanFactoryPostProcessorTest" />-->
+<!--    <bean class="com.example.springbootdemo.beanlife.InitBeanPostProcessor" />-->
+<!--    <bean class="com.example.springbootdemo.beanlife.InstanceBeanPostProcessor" />-->
+<!--    <bean class="com.example.springbootdemo.component.SpringContextUtil" />-->
 
 
     <bean id="beanLifeTestBean" class="com.example.springbootdemo.beanlife.BeanLifeTestBean">

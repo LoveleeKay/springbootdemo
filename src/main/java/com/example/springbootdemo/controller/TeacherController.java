@@ -3,6 +3,7 @@ package com.example.springbootdemo.controller;
 import com.example.springbootdemo.dao.TeacherDao;
 import com.example.springbootdemo.dto.Teacher;
 import com.example.springbootdemo.dto.TeacherInfoDto;
+import com.example.springbootdemo.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +30,12 @@ public class TeacherController {
     }
 
     @PostMapping("/teacher")
+//    @Transactional
     public int addTeacher(@RequestBody Teacher teacher){
-        return teacherDao.insert(teacher);
+        teacherDao.insert(teacher);
+        System.out.println(111);
+        throw new BusinessException("100", "error");
+//        return teacherDao.insert(teacher);
     }
 
     @PutMapping("/teacher")
