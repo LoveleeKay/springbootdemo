@@ -4,6 +4,7 @@ import com.example.springbootdemo.dao.TeacherDao;
 import com.example.springbootdemo.dto.Teacher;
 import com.example.springbootdemo.dto.TeacherInfoDto;
 import com.example.springbootdemo.exception.BusinessException;
+import com.example.springbootdemo.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
@@ -19,9 +24,22 @@ public class TeacherController {
     @Autowired
     private TeacherDao teacherDao;
 
+    @Autowired
+    private TeacherService teacherService;
+
     @GetMapping("/teacher")
-    public Teacher getTeacherById(String id) {
-        return teacherDao.getById(1, 22);
+    public Teacher getTeacherById(int id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.setAttribute("hello","123123123");
+        return teacherService.getTeacherById(id);
+    }
+
+    @GetMapping("/teacher/testiftest")
+    public List<Teacher> testIfTest(int id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String helloValue = (String) session.getAttribute("hello");
+        System.out.println(helloValue);
+        return teacherDao.testIfTest(id);
     }
 
     @GetMapping("/teacher-info")

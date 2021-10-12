@@ -24,6 +24,44 @@
         where id = #{id};
     </select>
 
+    <select id="testIfTest" resultType="com.example.springbootdemo.dto.Teacher">
+        select id, name, age
+        from teacher
+<!--        <trim prefix="WHERE" prefixOverrides="AND |OR ">-->
+<!--&#45;&#45;             先算and再算or-->
+<!--            <if test="id == 0 and (id == 1 or id == 2)">-->
+<!--                id = 2-->
+<!--            </if>-->
+<!--            <if test="id == 3">-->
+<!--                id = 3-->
+<!--            </if>-->
+<!--        </trim>-->
+<!--        <where>-->
+<!--                          &lt;!&ndash;先算and再算or &ndash;&gt;-->
+<!--            <if test="id == 0 and (id == 1 or id == 2)">-->
+<!--                id = 2-->
+<!--            </if>-->
+<!--            <if test="id == 3">-->
+<!--                id = 3-->
+<!--            </if>-->
+<!--        </where>-->
+        <where>
+            <choose>
+                <when test="id == 1">
+                    id = 1
+                </when>
+                <when test="id == 1">
+                    id = 2
+                </when>
+                <otherwise>
+                    id = 3
+                </otherwise>
+            </choose>
+        </where>
+
+
+    </select>
+
 
     <select id="getTeacherInfoById" resultMap="teacherStu2">
         select *
