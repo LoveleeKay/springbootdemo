@@ -4,7 +4,7 @@
 <configuration status="INFO">
     <!-- 全局参数 -->
     <Properties>
-        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}:%L -%m%n</Property>
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c{1}:%M:%L -%m%n</Property>
         <Property name="displayName">EurekaServer</Property>
     </Properties>
     <Appenders>
@@ -31,6 +31,10 @@
             <!-- 按大小划分 -->
             <SizeBasedTriggeringPolicy size="50 MB" />
         </RollingFile>
+        <Socket name="logstash" host="127.0.0.1" port="4560" protocol="TCP">
+            <PatternLayout pattern="${pattern}"/>
+            <JsonLayout properties="true"/>
+        </Socket>
     </Appenders>
     <Loggers>
         <!-- <Logger name="org.apache.catalina.util.LifecycleBase" level="ERROR"
@@ -54,8 +58,9 @@
 <!--        </springProfile>-->
         <Root level="info">
             <AppenderRef ref="console"></AppenderRef>
+            <AppenderRef ref="logstash"></AppenderRef>
 <!--            <AppenderRef ref="error"></AppenderRef>-->
-<!--            <AppenderRef ref="rollingFile"></AppenderRef>-->
+            <AppenderRef ref="rollingFile"></AppenderRef>
         </Root>
     </Loggers>
 
