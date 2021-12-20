@@ -25,7 +25,7 @@
     </tx:advice>
     <aop:config>
         <aop:pointcut id="allManagerMethod"
-                      expression="execution (* com.example.springbootdemo.controller.*.*(..))"/>
+                      expression="execution (* com.example.springbootdemo.service.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" order="0"/>
     </aop:config>
 

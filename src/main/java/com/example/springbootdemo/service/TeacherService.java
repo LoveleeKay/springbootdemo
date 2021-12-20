@@ -2,14 +2,16 @@ package com.example.springbootdemo.service;
 
 import com.example.springbootdemo.dao.TeacherDao;
 import com.example.springbootdemo.dto.Teacher;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
+@Slf4j
 public class TeacherService {
 
-    @Autowired
-    private TeacherDao teacherDao;
+    private final TeacherDao teacherDao;
 
     public Teacher getTeacherById(int id) {
 //        Teacher teacher = new Teacher();
@@ -17,4 +19,8 @@ public class TeacherService {
 //        return teacher;
         return teacherDao.getById(id,2);
     }
+
+
+
+
 }

@@ -5,7 +5,7 @@ import com.example.springbootdemo.dto.Teacher;
 import com.example.springbootdemo.dto.TeacherInfoDto;
 import com.example.springbootdemo.exception.BusinessException;
 import com.example.springbootdemo.service.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,15 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
 
-    @Autowired
-    private TeacherDao teacherDao;
+    private final TeacherDao teacherDao;
 
-    @Autowired
-    private TeacherService teacherService;
+    private final TeacherService teacherService;
 
     @GetMapping("/teacher")
     public Teacher getTeacherById(int id, HttpServletRequest request) {
