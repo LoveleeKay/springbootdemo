@@ -11,6 +11,6 @@ public class PointRecord {
 
     private int index;
     @Min(value = 0, groups = GroupA.class)
-    @Max(100)
+    @Max(value = 100, groups = GroupA.class)
     private int point;
 }

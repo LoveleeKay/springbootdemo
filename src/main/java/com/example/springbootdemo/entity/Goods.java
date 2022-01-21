@@ -37,7 +37,7 @@ public class Goods implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "价格")
-    private String price;
+    private Integer price;
 
     @ApiModelProperty(value = "删除标志")
     private Integer deleteFlag;

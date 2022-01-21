@@ -21,7 +21,7 @@ class GoodsMapperTest {
         System.out.println("testSelect start");
         Goods goods4 = new Goods();
         goods4.setName("llys5");
-        goods4.setPrice("105");
+        goods4.setPrice(105);
         goodsMapper.insert(goods4);
     }
 
@@ -31,15 +31,15 @@ class GoodsMapperTest {
         Goods goods1 = new Goods();
         goods1.setId(1);
         goods1.setName("llys1");
-        goods1.setPrice("101");
+        goods1.setPrice(101);
         Goods goods2 = new Goods();
         goods2.setId(2);
         goods2.setName("llys2");
-        goods2.setPrice("102");
+        goods2.setPrice(102);
         Goods goods3 = new Goods();
         goods3.setId(3);
         goods3.setName("llys3");
-        goods3.setPrice("103");
+        goods3.setPrice(103);
         goodsMapper.updateById(goods1);
         goodsMapper.updateById(goods2);
         goodsMapper.updateById(goods3);

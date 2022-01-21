@@ -75,7 +75,9 @@
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <!--日志文档保留天数-->
-            <maxHistory>15</maxHistory>
+            <maxHistory>30</maxHistory>
+            <!--日志文档保留最大容量，需要设置maxHistory才会生效，优先判断maxHistory-->
+            <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>
         <!-- 此日志文档只记录info级别的 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
